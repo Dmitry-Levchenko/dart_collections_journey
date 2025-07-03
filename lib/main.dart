@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'names.dart';
+import 'package:word_generator/word_generator.dart';
 void main() {
 print(' ------------------- Task 1 -------------------');
 
@@ -42,11 +43,23 @@ print(' ------------------- Task 1 -------------------');
   print('\n Кількість спільних імен: ${commonNames.length}');
   print('\n Спільні імена: $commonNames');
 
-  // Імена, що є тільки в першому списку
   final Set<String> onlyInFirst = uniqueNames1.difference(uniqueNames2);
-  print('\n Імена лише в першому списку (names1): $onlyInFirst');
+  print('\n Унікальні імена лише в першому списку: $onlyInFirst');
 
-  // Імена, що є тільки в другому списку
   final Set<String> onlyInSecond = uniqueNames2.difference(uniqueNames1);
-  print('\n Імена лише в другому списку (names2): $onlyInSecond');
+  print('\n Унікальні імена лише в другому списку: $onlyInSecond');
+
+  print('\n ------------------- Task 3 -------------------');
+
+  final wordGenerator = WordGenerator();
+  List<String> nounsList = wordGenerator.randomNouns(50);
+  Map<String, int> nounsMap = {
+    for (var word in nounsList) word: word.length,
+  };
+
+  Map<String, int> tempNouns = Map.fromEntries(
+    nounsMap.entries.where((entry) => entry.value % 2 == 0),
+  );
+  print('\n Ключі з парною довжиною слова:');
+  tempNouns.keys.forEach((key) => print(key));
 }

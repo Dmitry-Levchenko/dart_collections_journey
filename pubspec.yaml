@@ -1,0 +1,16 @@
+name: my_project_name
+description: A new Dart or Flutter project
+version: 1.0.0
+
+environment:
+  sdk: ">=2.18.0 <3.0.0" 
+
+dependencies:
+  word_generator: ^0.5.0 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
