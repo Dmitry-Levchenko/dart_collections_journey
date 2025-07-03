@@ -1,9 +1,10 @@
 import 'dart:math';
+import 'names.dart';
 void main() {
 print(' ------------------- Task 1 -------------------');
 
   List<int> numbers = List.generate(100, (_) => Random().nextInt(101));
-  print('Список зі 100 чисел до 100: $numbers');
+  print('\n Список зі 100 чисел до 100: $numbers');
 
   print('\n 65-й елемент: ${numbers[64]}');
 
@@ -30,4 +31,22 @@ print(' ------------------- Task 1 -------------------');
   }
   print('\n Довжина списку парних елементів: ${temp.length}');
   print('$temp');
+
+
+  print('\n ------------------- Task 2 -------------------');
+
+  final Set<String> uniqueNames1 = Set.from(ukrainianNames1);
+  final Set<String> uniqueNames2 = Set.from(ukrainianNames2);
+
+  final Set<String> commonNames = uniqueNames1.intersection(uniqueNames2);
+  print('\n Кількість спільних імен: ${commonNames.length}');
+  print('\n Спільні імена: $commonNames');
+
+  // Імена, що є тільки в першому списку
+  final Set<String> onlyInFirst = uniqueNames1.difference(uniqueNames2);
+  print('\n Імена лише в першому списку (names1): $onlyInFirst');
+
+  // Імена, що є тільки в другому списку
+  final Set<String> onlyInSecond = uniqueNames2.difference(uniqueNames1);
+  print('\n Імена лише в другому списку (names2): $onlyInSecond');
 }
